@@ -23,7 +23,7 @@
 
 ### WATS将上述的开通信息发送给ChinaCache和微软CDN团队
 
-1. ChinaCache联系人：Shirley Chen <shirley.chen@chinacache.com>, Lynn Qi <lin.qi@chinacache.com> 
+1. ChinaCache联系人：Vincent Zhang <jian.zhang@chinacache.com>, Lynn Qi <lin.qi@chinacache.com> 
 2. 微软CDN团队：<mccdncn@microsoft.com>
 
 
