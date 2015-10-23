@@ -2,7 +2,7 @@
 
 经过产品团队的不懈努力，新版Windows Azure CDN管理门户在经过了有限开放预览之后，已经正式上线并开放给所有用户。
 
-新版Windows Azure CDN管理门户经过全新的设计，除了在使用易用性、视觉展示效果等方面有所提升外，还增加了多个用户需求很高的功能模块。本文简要介绍了这些新增特性，更多详细内容请登入[新版Windows Azure CDN管理门户](https://cdnportal.windowsazure.cn/)体验。
+新版Windows Azure CDN管理门户经过全新的设计，除了在使用易用性、视觉展示效果等方面有所提升外，还增加了多个用户需求很高的功能模块。本文简要介绍了这些新增特性，更多详细内容请登入新版Windows Azure CDN管理门户体验。
 
 
 ## 概览
@@ -75,7 +75,7 @@
 ![][9]
 
 ## 后续更新
-本文对新版Windows Azure CDN管理门户的主要功能做了简单的介绍，请登录[新版管理门户](https://cdnportal.windowsazure.cn/)获得详细信息。接下来产品团队会进一步改进新版Windows Azure CDN管理门户，更加有针对性的提升用户体验，逐步增加用户需要的其他功能模块。敬请期待！
+本文对新版Windows Azure CDN管理门户的主要功能做了简单的介绍，请登录新版管理门户获得详细信息。接下来产品团队会进一步改进新版Windows Azure CDN管理门户，更加有针对性的提升用户体验，逐步增加用户需要的其他功能模块。敬请期待！
 
 更多Windows Azure CDN详情，请参阅[Windows Azure CDN技术文档](http://www.windowsazure.cn/documentation/services/cdn/)。
 
