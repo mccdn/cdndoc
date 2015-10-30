@@ -5,11 +5,11 @@ You can create a CDN endpoint for a storage account, in order to cache blob data
 
 ##Create CDN Endpoint
 
-1.	Go to Windows Azure CDN, choose CDN and click ‘NEW’’, Click QUICK CREATE.
-2.	Choose ‘Acceleration Type’, currently China Azure CDN support Web Acceleration, Download Acceleration and VOD Acceleration. 
-3.	Choose ‘Origin Domain Type’, currently we have support 4 options, Cloud Service, Storage Account, Web App and Custom Origin Domain
-4.	Type in or choose Origin Domain, select an origin domain under selected Origin Domain Type in last step.
-5.	In ‘Custom Domain’, type the custom domain you are about to use.
+1.	Go to [Windows Azure CDN](https://cdnportal.windowsazure.cn/Account/Login?ReturnUrl=%2f), choose CDN and click ‘NEW’’, then click 'QUICK CREATE'.
+2.	Choose ‘Acceleration Type’, currently China Azure CDN supports 'Web Acceleration', 'Download Acceleration' and 'VOD Acceleration'. 
+3.	Choose ‘Origin Domain Type’, currently there are 4 options: 'Cloud Service', 'Storage Account', 'Web App' and 'Custom Origin Domain'.
+4.	Type in or choose Origin Domain, select an origin domain under selected Origin Domain Type in previous step.
+5.	In ‘Custom Domain’, type in the custom domain you are about to use.
 6.	For ‘ICP Number’, type in the mapping ICP number with above custom domain. 
 	
 ![001](/Images/001.png)
@@ -41,7 +41,7 @@ If you wish to do advanced CDN configurations and/or view reporting, you can cli
 ![006](/Images/006.png)
 
 ####Overview
-In Advance management page, you will see overview of then endpoints you created under selected subscription ID. Total Domain, Total Enabled Domain, Total Usage in Current Month and Bandwidths in Current Months.
+In Advance management page, you will see overview of then endpoints you created under selected subscription ID. Parameters: Total Domain, Total Enabled Domain, Total Usage in Current Month and Bandwidths in Current Months.
 
 ![007](/Images/007.png)
 ![008](/Images/008.png)
@@ -53,7 +53,7 @@ You can Modify Configurations, Configure Caching Rules and Access Control Manage
 ![009](/Images/009.png)
 
 ####Modify Origin Domain
-Windows Azure CDN has default caching rules. You can also customize caching rules and system will apply customized rules. If doesn’t hit customized rules, it will apply default caching rules.
+Windows Azure CDN has default caching rules. You can also customize caching rules and customized rules will be applied first. If doesn’t hit customized rules, it will apply default caching rules.
 
 ![010](/Images/010.png)
 
@@ -65,8 +65,8 @@ Windows Azure CDN has default caching rules. You can also customize caching rule
 ![011](/Images/011.png)
 
 ####Access Control Management
-Can configure Referer Block list and allowed list to achieve anti-stealing link.
-Each rule applies to both folder and files. E.g. all png files under /*.png.
+Can configure Referer Block List and Allowed List to achieve anti-stealing link.
+Each rule applies to both folder and files, e.g. all png files under /*.png.
 Block list: when Referer is in block list, access is denied. Otherwise can do.
 Allow list: only when Referer is in allow list, access is allowed. Otherwise, access denied.
 
@@ -83,12 +83,12 @@ Select Subscription ID, acceleration domains and date to view bandwidth usage.
 ![014](/Images/014.png)
 
 ####Cache Refresh
-Select Subscription ID, acceleration domains and date to view Cache states. The states has 3 values, Success, Fail and Running. You can also configure cache refresh rules, File Refresh and Folder Refresh. 
+Select Subscription ID, acceleration domains and date to view Cache states. Cache Refresh has 3 states: Success, Fail and Running. You can also configure cache refresh rules, File Refresh and Folder Refresh. 
 
 ![015](/Images/015.png)
 
 ####File refresh
-You can click Submit File Refresh to set File Refreshing rule. Can click ‘+’ to add rules and ‘X’ to delete rules.
+You can click 'Submit File Refresh' to set File Refreshing rule. Can click ‘+’ to add rules and ‘X’ to delete rules.
 
 ![016](/Images/016.png)
 
