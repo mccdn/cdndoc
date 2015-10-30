@@ -19,7 +19,8 @@ Note: It may take 1 business day to verify if ICP number and custom domain match
 
 ##View CDN Endpoint Details
 ###Endpoint General Information
-Once you created one endpoint, you can click the CDN endpoint and view general info, see details below.
+Once creating an endpoint, you can click it and view general info, see details below.
+
 ![003](/images/003.png)
 
 ###Monitor
