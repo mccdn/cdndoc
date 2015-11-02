@@ -19,8 +19,8 @@ Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物�
 
 现有 Windows Azure 中国客户现在可使用[Windows Azure 管理门户](https://manage.windowsazure.cn/)中的 Windows Azure CDN。 
 
-## 步骤 1:创建存储帐户，云服务或者网站
-您可以为现有的Windows Azure订阅中的存储账户，云服务或者网站创建CDN终结点。您也可以按以下过程创建新的存储帐户，云服务或者网站用于 Windows Azure 订阅。
+## 步骤 1:创建存储帐户，云服务，网站或媒体服务
+您可以为现有的Windows Azure订阅中的存储账户，云服务，网站或媒体服务创建CDN终结点。您也可以按以下过程创建新的存储帐户，云服务或者网站用于 Windows Azure 订阅。
 
 ### 为 Windows Azure 订阅创建存储帐户
 请参阅 [如何创建存储帐户](http://windowsazure.cn/zh-cn/manage/services/storage/how-to-create-a-storage-account/)
@@ -30,6 +30,9 @@ Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物�
 
 ### 为 Windows Azure 订阅创建网站
 请参阅 [如何创建和部署网站](http://www.windowsazure.cn/zh-cn/manage/services/web-sites/how-to-create-websites/) 
+
+### 为 Windows Azure 订阅创建媒体服务
+请参阅 [如何创建和部署媒体服务](http://www.windowsazure.cn/documentation/articles/media-services-create-account/) 
 
 ## 步骤 2:创建新的 CDN 终结点
 一旦启用对存储帐户，云服务或者网站的 CDN 访问，所有公开可用的对象将有资格获得 CDN 边缘高速缓存。如果您修改一个当前在 CDN 中缓存的对象，则只有 CDN 在缓存内容生存时间到期时刷新了对象的内容后（或通过高级管理功能进行手动刷新），才能通过 CDN 访问新内容。
