@@ -25,7 +25,6 @@
 
     二级域名不需要备案；如果sample.com已经备案，那么images.sample.com则不需要备案。
 
-
 - **如果域名有跳转是否可以使用CDN？**
      
     可以，不过建议给跳转后的域名加速，跳转前的域名加速没有必要。
@@ -49,16 +48,24 @@
     4.HTTPS加速针对对安全性要求比较高的情况
     对应到后端CDN的不同之处主要在于，不同的加速类型由不同的CDN节点设备来支撑，您无需做额外配置。
 
-- **Windows Azure CDN缓存规则逻辑是什么？**
+- **Windows Azure CDN默认的缓存规则是什么？**    
+
+    - Web加速类型，系统默认的缓存规则：
+      1. 对php、aspx、asp、 jsp、 do、 dwr、cgi、 fcgi、action、ashx、axd、json等动态文件不缓存
+      2. 对以shtml、html、htm、js结尾的文件，默认缓存半天（720分钟） 
+      3. 其他静态文件默认缓存一天（1440分钟）
+    - 下载加速类型，系统默认的缓存规则：
+      1. 对php、aspx、asp、jsp、do等动态文件不缓存
+      2. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月
+    - VOD视频点播加速类型，系统默认的缓存规则：
+      1. 对php、aspx、asp、jsp、do等动态文件不缓存
+      2. 对MP3、wma等缓存1天
+      3. 对mwv、html、htm、shtml、hml、gif、swf、png、bmp、js等缓存1小时
+      4. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月
 	
     缓存规则逻辑：
 	1. 如果用户配置了不缓存的规则，优先匹配；然后匹配需要缓存的规则；缓存规则自上而下匹配。
-	2. 如果某个URL在不缓存、缓存规则里都没有匹配上，那么就遵循CDN默认规则（遵循源站响应Header设置，如果有cookie、no-cache、expires等限制，就不缓存，否则就会缓存）
-	   - Set-Cookie，开启允许忽略Cookie时允许缓存，关闭时不允许缓存。Cookie在用于用户登录和身份识别时是不能勾选忽略Set-Cookie选项的，否则可能引起功能性问题。
-       - Cache-Control：若Cache-control的值含有no-store/no-cache/private，开启允许忽略Cache-control时允许缓存，关闭后不允许缓存。
-       - Expires：指定了缓存内容到期时间点，到期后会自动刷新。
-       - Max-age：指定了缓存时间长度，单位为秒，如果太小，如小于两位数，那么很快就会过期，导致无法缓存。
-	3. Windows Azure CDN高级管理平台 “域名管理”界面下面的“修改缓存规则”中可以选择“设置为禁止缓存”功能。即：凡是客户未配置需要缓存的内容，都不缓存。	 
+	2. 如果某个URL在不缓存、缓存规则里都没有匹配上，那么就遵循CDN默认规则
 	
 - **如何设置缓存刷新？**
    
@@ -80,11 +87,11 @@
     目前Windows Azure CDN和蓝汛和网宿合作，为用户提供优质的CDN加速服务。后续会有其他国内主流CDN服务厂商合作。
 - **如何配置CNAME？**
 
-     到域名托管商找到该域名解析管理—删除该域名的A记录—添加一条cname记录，cname的域名我们已经给出。
+    到域名托管商找到该域名解析管理—删除该域名的A记录—添加一条cname记录，cname的域名我们已经给出。
 
 - **怎么确认我的CNAME记录生效了？**
 
-     各地DNS的生效时间不一致，取决于域名对应的原有记录的生效时间（TTL时间）。当ping域名，给出的解析不再是您源站IP，说明已经生效了。
+    各地DNS的生效时间不一致，取决于域名对应的原有记录的生效时间（TTL时间）。当ping域名，给出的解析不再是您源站IP，说明已经生效了。
 
 ##价格咨询
 
@@ -105,7 +112,7 @@
 
 - **为什么我的URL不能缓存？**
 
-     URL不能被缓存，通常有以下几个原因： 
+    URL不能被缓存，通常有以下几个原因： 
      1. 源站的该URL响应Header里含有以下信息：
         - Set-Cookie（且缓存规则里并未勾选忽略Set-Cookie选项）。注：Set-Cookie在用于用户登录和身份识别时是不能勾选忽略Set-Cookie选项的，否则可能引起功能性问题。
         - Cache-Control：no-store/no-cache/private（且缓存规则里并未勾选忽略Cache-Control选项）。
@@ -116,7 +123,7 @@
 
 - **系统提示不能CNAME**
 
-     有可能，虽然我们没有限制加速域名但是有的域名托管商不允许不带有主机名的域名进行cname，对此，没有更好的办法：要么更换加速域名，要么更换域名托管商。
+    有可能，虽然我们没有限制加速域名但是有的域名托管商不允许不带有主机名的域名进行cname，对此，没有更好的办法：要么更换加速域名，要么更换域名托管商。
 
 - **用了CDN后打开速度更慢**
 
