@@ -62,6 +62,9 @@
       2. 对MP3、wma等缓存1天
       3. 对mwv、html、htm、shtml、hml、gif、swf、png、bmp、js等缓存1小时
       4. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月
+     - 直播类型加速，系统默认的缓存规则：
+       1. 对ts文件缓存2分钟
+       2. 对m3u8 文件缓存2秒钟 
 	
     缓存规则逻辑：
 	1. 如果用户配置了不缓存的规则，优先匹配；然后匹配需要缓存的规则；缓存规则自上而下匹配。
