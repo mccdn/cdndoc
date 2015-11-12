@@ -8,15 +8,11 @@
 
 - **什么是CNAME？**
     
-    CNAME(Canonical Name record)，通常是别名指向。例如，假设用户域名为www.abc.com，用户配置完成后网站加速里给出的CDN服务域名为www.abc.com.mschcdn.com。用户需要在 www.abc.com托管的服务商那里将www.abc.com对应的记录类型修改为CNAME，记录值修改为www.abc.com.mschcdn.com，那么用户访问www.abc.com时会去获取www.abc.com.mschcdn.com解析出的加速节点的IP地址记录。
+    CNAME(Canonical Name record)，通常是别名指向。例如，假设用户自定义加速域名为www.abc.com，用户配置完成后网站加速里给出的CDN服务域名为www.abc.com.mschcdn.com。用户需要在 域名托管服务商那里将www.abc.com对应的A记录删除，添加域名的CNAME记录为www.abc.com.mschcdn.com。这样，用户访问www.abc.com时会去获取www.abc.com.mschcdn.com解析出的加速节点的IP地址记录。
 
 - **CDN流量和回原流量关系**
     - CDN流量表示缓存命中部分
     - 回原流量表示MISS部分 
-
-- **CDN标准版和CDN高级版有什么区别？**
-     
-    首先，价格不同，具体请参考[定价详细信息](http://www.windowsazure.cn/home/features/cdn/#price)。其次，目前CDN高级版仅包含https的加速服务，后续会逐步增加其他的高级加速服务。目前如果您想使用 CDN HTTPS 加速服务，请通过支持页面联系 Windows Azure 的支持团队开通 CDN HTTPS 加速服务。
 
 - **域名审核周期是多久？**
    
@@ -49,10 +45,6 @@
     4.HTTPS加速针对对安全性要求比较高的情况
     对应到后端CDN的不同之处主要在于，不同的加速类型由不同的CDN节点设备来支撑，您无需做额外配置。
 
-- **Azure CDN合作的CDN服务厂商都有谁？**
-
-    目前Windows Azure CDN和蓝汛和网宿合作，为用户提供优质的CDN加速服务。后续会有其他国内优秀的CDN服务厂商合作。
-
 - **Windows Azure CDN缓存规则逻辑是什么？**
 	
     缓存规则逻辑：
@@ -76,7 +68,12 @@
 	 回源域名表示CDN回源时，HTTP请求头（request header）中的Host字段值。这个字段值一般是域名形式的字符串，被源站用来识别是否与源站服务器上配置的域名相同。
 	 
 	 在azure management portal里创建CDN的时候，在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
+- **CDN标准版和CDN高级版有什么区别？**
+     
+    首先，价格不同，具体请参考[定价详细信息](http://www.windowsazure.cn/home/features/cdn/#price)。其次，目前CDN高级版仅包含https的加速服务，后续会逐步增加其他的高级加速服务。目前如果您想使用 CDN HTTPS 加速服务，请通过支持页面联系 Windows Azure 的支持团队开通 CDN HTTPS 加速服务。
+- **Azure CDN合作的CDN服务厂商都有谁？**
 
+    目前Windows Azure CDN和蓝汛和网宿合作，为用户提供优质的CDN加速服务。后续会有其他国内优秀的CDN服务厂商合作。
 - **如何配置CNAME？**
 
      到域名托管商找到该域名解析管理—删除该域名的A记录—添加一条cname记录，cname的域名我们已经给出。
