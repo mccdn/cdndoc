@@ -21,6 +21,10 @@
 - **为什么使用CDN一定要有备案号？**
  
     使用CDN以后解析出来的IP是FC节点IP。如果没有备案工信部发现的话会直接封IP的。为了后续不给您带来更多的麻烦建议没有备案或者备案号被取消的域名申请备案待工信部能查到后再使用加速服务。
+- **二级域名需要备案吗？**
+
+    二级域名不需要备案；如果sample.com已经备案，那么images.sample.com则不需要备案。
+
 
 - **如果域名有跳转是否可以使用CDN？**
      
@@ -50,10 +54,10 @@
     缓存规则逻辑：
 	1. 如果用户配置了不缓存的规则，优先匹配；然后匹配需要缓存的规则；缓存规则自上而下匹配。
 	2. 如果某个URL在不缓存、缓存规则里都没有匹配上，那么就遵循CDN默认规则（遵循源站响应Header设置，如果有cookie、no-cache、expires等限制，就不缓存，否则就会缓存）
-	- Set-Cookie，开启允许忽略Cookie时允许缓存，关闭时不允许缓存。Cookie在用于用户登录和身份识别时是不能勾选忽略Set-Cookie选项的，否则可能引起功能性问题。
-    - Cache-Control：若Cache-control的值含有no-store/no-cache/private，开启允许忽略Cache-control时允许缓存，关闭后不允许缓存。
-    - Expires：指定了缓存内容到期时间点，到期后会自动刷新。
-    - Max-age：指定了缓存时间长度，单位为秒，如果太小，如小于两位数，那么很快就会过期，导致无法缓存。
+	   - Set-Cookie，开启允许忽略Cookie时允许缓存，关闭时不允许缓存。Cookie在用于用户登录和身份识别时是不能勾选忽略Set-Cookie选项的，否则可能引起功能性问题。
+       - Cache-Control：若Cache-control的值含有no-store/no-cache/private，开启允许忽略Cache-control时允许缓存，关闭后不允许缓存。
+       - Expires：指定了缓存内容到期时间点，到期后会自动刷新。
+       - Max-age：指定了缓存时间长度，单位为秒，如果太小，如小于两位数，那么很快就会过期，导致无法缓存。
 	3. Windows Azure CDN高级管理平台 “域名管理”界面下面的“修改缓存规则”中可以选择“设置为禁止缓存”功能。即：凡是客户未配置需要缓存的内容，都不缓存。	 
 	
 - **如何设置缓存刷新？**
@@ -73,7 +77,7 @@
     首先，价格不同，具体请参考[定价详细信息](http://www.windowsazure.cn/home/features/cdn/#price)。其次，目前CDN高级版仅包含https的加速服务，后续会逐步增加其他的高级加速服务。目前如果您想使用 CDN HTTPS 加速服务，请通过支持页面联系 Windows Azure 的支持团队开通 CDN HTTPS 加速服务。
 - **Azure CDN合作的CDN服务厂商都有谁？**
 
-    目前Windows Azure CDN和蓝汛和网宿合作，为用户提供优质的CDN加速服务。后续会有其他国内优秀的CDN服务厂商合作。
+    目前Windows Azure CDN和蓝汛和网宿合作，为用户提供优质的CDN加速服务。后续会有其他国内主流CDN服务厂商合作。
 - **如何配置CNAME？**
 
      到域名托管商找到该域名解析管理—删除该域名的A记录—添加一条cname记录，cname的域名我们已经给出。
