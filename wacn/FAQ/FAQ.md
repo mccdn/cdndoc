@@ -37,15 +37,16 @@
   
     现阶段提供的CDN主要是静态加速，包含一部分动态加速技术。比如：通过多线路节点回源，TCP优化等。不支持对PHP，ASP.NET，JSP等动态网页的加速，后续会逐步增加更多对动态页面的加速。
     
-    Windows Azure CDN支持的加速类型包括：Web加速，下载加速，VOD加速和HTTPS加速。
+    Windows Azure CDN支持的加速类型包括：Web加速，下载加速，VOD加速，直播流媒体加速和HTTPS加速。
 	
-- **CDN加速类型中的“WEB加速”、“下载加速”、“VOD加速”、“HTTPS加速”具体有什么区别？**
+- **CDN加速类型中的“WEB加速”、“下载加速”、“VOD加速”、“流媒体直播加速”、“HTTPS加速”具体有什么区别？**
 
     不同的CDN加速类型对应于不同的使用场景：
     1.WEB加速对应于网页等（html，CSS,图片，JS）比较小的静态文件加速
     2.下载加速一般对应于20MB以上的大文件文件分发
     3.VOD加速对应于基于HTTP的视频点播加速
-    4.HTTPS加速针对对安全性要求比较高的情况
+    4.流媒体直播加速对应于流媒体直播加速
+    5.HTTPS加速针对对安全性要求比较高的情况
     对应到后端CDN的不同之处主要在于，不同的加速类型由不同的CDN节点设备来支撑，您无需做额外配置。
 
 - **Windows Azure CDN默认的缓存规则是什么？**    
@@ -62,7 +63,7 @@
       2. 对MP3、wma等缓存1天
       3. 对mwv、html、htm、shtml、hml、gif、swf、png、bmp、js等缓存1小时
       4. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月
-     - 直播类型加速，系统默认的缓存规则：
+     - 流媒体直播加速类型，系统默认的缓存规则：
        1. 对ts文件缓存2分钟
        2. 对m3u8 文件缓存2秒钟 
 	
