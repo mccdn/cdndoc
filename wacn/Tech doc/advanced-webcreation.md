@@ -1,12 +1,12 @@
-#Web类型CDN节点创建
+#Web加速CDN节点创建
 WEB加速服务是最基本也是应用最广泛的CDN加速服务，主要针对html文件，CSS，图片，JS，flash动画等更新频率低的小文件加速。通过将这些小文件缓存到Windows Azure CDN的边缘节点，减少源站的访问压力，同时满足用户就近访问网站的需求，提高网站的访问体验，进而带动网站的用户访问量。
 
-Web类型CDN节点适用于面向访问量较大的大中小企业门户类网站。如政府机构网站，企业门户网站等。
+Web加速CDN节点适用于面向访问量较大的大中小企业门户类网站。如政府机构网站，企业门户网站等。
 
-###**Web类型加速默认缓存规则**
-Windows Azure CDN针对Web类型加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
+###**Web加速默认缓存规则**
+Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
 
-**Web类型加速系统默认缓存规则**
+**Web加速系统默认缓存规则**
 
 1. 对php、aspx、asp、 jsp、 do、 dwr、cgi、 fcgi、action、ashx、axd、json等动态文件不缓存
 2. 对以shtml、html、htm、js结尾的文件，默认缓存半天（720分钟） 
@@ -14,7 +14,7 @@ Windows Azure CDN针对Web类型加速设置了默认缓存规则（见下文）
 
 本文是针对Web类型加速域名创建，请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
-###**创建Web类型加速域名**
+###**创建Web加速域名**
 
 1. 在 Windows Azure 管理门户的导航窗格中，单击“CDN”。
 2. 在功能区上，单击“新建”。在“新建”对话框上，依次选择“应用服务”、“CDN”和“快速创建”。
