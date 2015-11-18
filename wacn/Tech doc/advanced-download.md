@@ -1,9 +1,17 @@
 #下载类型CDN节点创建
 下载类型加速主要针对20MB以上的大文件下载，例如影音、软件包、应用、游戏客户端等大文件的下载分发。Windows Azure CDN将文件缓存到CDN边缘节点，缓解源站下载的带宽压力，提高用户下载体验。文件可以通过自定义缓存规则或者手动刷新CDN缓存文件。
 
-适用客户群体：影音视频，游戏客户端，软件在线升级，应用程序下载等。
+下载加速适用于操作系统固件升级，新游戏发布需要下载客户端安装包，手机app更新，应用程序下载等用户场景。
 
-本文是针对下载类型加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解Windows Azure CDN加速节点创建信息。
+###**下载类型加速默认缓存规则**
+Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
+
+**下载加速系统默认缓存规则**
+
+1. 对php、aspx、asp、jsp、do等动态文件不缓存。
+2. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月。
+
+本文是针对下载类型加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
 ###**创建下载类型加速域名**
 
@@ -43,13 +51,5 @@
 
    ![010](images/010.png)
 
-**注意** 为终结点创建的配置将不能立即可用：
+**注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
 
-- 首先需要审核所提供的自定义域名和ICP编号是否匹配、有效。这个过程需要最多一个工作日的时间来完成。
-- 如果ICP审核没有通过，您需要删除之前创建的这个CDN终结点，然后使用正确的自定义域名和ICP编号重新创建。
-- 如果ICP审核通过，CDN服务最多需要 60 分钟时间进行注册以便通过 CDN 网络传播。与此同时，您还需要按照界面上的提示信息配置CNAME映射信息，这样才可以最终通过自定义域名访问CDN缓存内容。
-
-###**下载类型加速默认缓存规则**
-
-1. 对php、aspx、asp、jsp、do等动态文件不缓存。
-2. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月。
