@@ -33,8 +33,15 @@
 >如果CDN日志中未包括栏目内容，则相应记录标记为“-”，比如“c-referer”记录。此外，取决于边缘节点的日志配置，“rs-duration”、“hit-miss”、“s-ip”等记录也有可能为空。
 
 >**注意**
->网站通过CDN加速后，其访问记录多数来源于CDN边缘节点。如果用户需要知道客户端原始IP地址，请参考FAQ：
->[源站日志中如何获取访问者的原始IP](https://github.com/mccdn/cdndoc/blob/master/wacn/azurecdnfaq.md)。
+>网站通过CDN加速后，其访问记录多数来源于CDN边缘节点。CDN回源时，会在HTTP Header X-Forwarded-For 中填入原始IP，源站的Web服务器可以修改日志配置该信息。如果用户需要知道客户端原始IP地址，可以参考以下信息。
+
+>以 Nginx 为例，其配置文件可以加入如下信息：
+
+>log_format logCDN '$remote_addr forwarded for $http_x_forwarded_for - $remote_user [$time_local]  '
+                  '"$request" $status $body_bytes_sent '
+                  '"$http_referer" "$http_user_agent"';
+
+>access_log /var/log/nginx/access.log logCDN;
 
  [1]: images/log-download-1.png
  [2]: images/log-download-2.png
