@@ -1,1 +1,0 @@
-﻿# Windows Azure CDN 控制台帮助文档 
