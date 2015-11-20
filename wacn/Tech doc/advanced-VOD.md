@@ -1,9 +1,11 @@
 #VOD视频点播加速CDN节点创建
 VOD视频点播加速服务主要针对在线音视频点播提供加速服务。随着网路视频媒体服务的兴起，越来越多的用户选择使用网络平台收听观看各种音视频。加之国内网络环境的限制，对音视频内容的最终分发提出了非常高的要求。Windows Azure CDN将音频、视频等流媒体内容分发缓存到CDN边缘节点，将用户请求指向最优节点，减少源站服务器的负载，节省带宽资源，给用户提供高速、流畅、高质量的在线视频体验。
 
-Windows Azure CDN VOD视频点播基于HLS协议，并支持Windows Azure内置的[媒体服务](http://www.windowsazure.cn/home/features/media-services/)。
+Windows Azure CDN VOD视频点播加速支持Windows Azure内置的[媒体服务](http://www.windowsazure.cn/home/features/media-services/)。
 
 VOD视频点播加速适用于各类在线音视频点播网站，如媒体类视频网站，在线教育网站，移动端APP客户端等。
+
+本文是针对VOD视频点播加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
 ###**视频点播加速默认缓存规则**
 Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
@@ -15,8 +17,6 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
 3. 对mwv、html、htm、shtml、hml、gif、swf、png、bmp、js等缓存1小时
 4. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月
       
-本文是针对VOD视频点播加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
-
 ###**创建VOD视频点播加速域名**
 
 1. 在 Windows Azure 管理门户的导航窗格中，单击“CDN”。
@@ -25,7 +25,7 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
 
     ![016](images/016.png)
 
-4. 在“原始域类型”下拉列表中，选择存储账户，媒体服务或者自定义原始域。**注意** 视频点播加速服务只支持存储账户，媒体服务或者自定义原始域。其中存储账户，支持MP4视频格式。
+4. 在“原始域类型”下拉列表中，选择云服务，存储账户，Web应用，媒体服务或者自定义原始域。
 5. 在“原始域”下拉列表中，从可用的存储帐户，媒体服务列表中选择一个用于创建CDN终结点。  
     ![017](images/017.png)
 

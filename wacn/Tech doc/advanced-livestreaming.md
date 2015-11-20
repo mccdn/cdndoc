@@ -1,9 +1,11 @@
 #流媒体直播加速CDN节点创建
 流媒体直播加速服务主要针对在线视音频播提供加速服务。网络直播服务快速、实时的特性备受广大用户青睐。直播的实时性导致海量用户并发访问，给源站和带宽资源带来巨大压力，同时受国内网络跨地域跨运营商的限制，对高质量、快速的流媒体直播提出了较高的要求。Windows Azure CDN流媒体加速服务通过将实时采集源站视频流并分发到距离用户最近的CDN边缘节点，通过智能缓存和调度策略，为用户提供计算最优节点，减少链路传输造成的延迟和带宽压力，且按使用量付费，给用户提供高速、流畅、高质量的直播观看体验。
 
-Windows Azure CDN 流媒体直播加速基于RTMP流媒体协议，支持Windows Azure内置的[媒体服务](http://www.windowsazure.cn/home/features/media-services/)。
+Windows Azure CDN 流媒体直播加速主要基于HTTP Live Streaming(HLS)协议，支持Windows Azure内置的[媒体服务](http://www.windowsazure.cn/home/features/media-services/)。
 
 流媒体直播加速适用于各类流媒体直播网站，如网络电视直播，体育赛事，盛典赛事直播等。
+
+本文是针对流媒体直播加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
 ###**流媒体直播加速默认缓存规则**
 Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
@@ -13,8 +15,6 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
  1. 对ts文件缓存2分钟
  2. 对m3u8 文件缓存2秒钟 
       
-本文是针对流媒体直播加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
-
 ###**创建V流媒体直播加速域名**
 
 1. 在 Windows Azure 管理门户的导航窗格中，单击“CDN”。
@@ -23,9 +23,7 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
 
     ![025](images/025.png)
 
-4. 在“原始域类型”下拉列表中，选择媒体服务或者自定义原始域。
-     
-     **注意** 流媒体直播加速只支持“媒体服务”和自定义原始域。
+4. 在“原始域类型”下拉列表中，选择云服务，存储账户，Web应用，媒体服务或者自定义原始域。
 5. 在“原始域”下拉列表中，从可用的媒体服务列表中选择一个用于创建CDN终结点。  
     ![026](images/026.png)
 

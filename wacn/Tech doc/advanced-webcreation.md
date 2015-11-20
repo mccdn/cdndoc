@@ -3,6 +3,8 @@ WEB加速服务是最基本也是应用最广泛的CDN加速服务，主要针�
 
 Web加速CDN节点适用于面向访问量较大的大中小企业门户类网站。如政府机构网站，企业门户网站等。
 
+本文是针对Web类型加速域名创建，请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
+
 ###**Web加速默认缓存规则**
 Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
 
@@ -11,8 +13,6 @@ Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您
 1. 对php、aspx、asp、 jsp、 do、 dwr、cgi、 fcgi、action、ashx、axd、json等动态文件不缓存
 2. 对以shtml、html、htm、js结尾的文件，默认缓存半天（720分钟） 
 3. 其他静态文件默认缓存一天（1440分钟）
-
-本文是针对Web类型加速域名创建，请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
 ###**创建Web加速域名**
 
@@ -31,7 +31,7 @@ Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您
 6. 在“自定义域”中输入要使用的自定义域名如：cdn.chinaazuretest1.com。自定义域支持泛域名加速。**注意**自定义域名不能和原始域名相同。
 7. 在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
     
-    原始域类型是存储账户，对应的回源主机标头：
+    原始域类型是云服务，对应的回源主机标头：
 
     ![023](images/023.png)  
     

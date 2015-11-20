@@ -3,6 +3,8 @@
 
 下载加速适用于操作系统固件升级，游戏客户端，手机app更新，应用程序下载等用户场景。
 
+本文是针对下载类型加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
+
 ###**下载加速默认缓存规则**
 Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
 
@@ -10,8 +12,6 @@ Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。
 
 1. 对php、aspx、asp、jsp、do等动态文件不缓存。
 2. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月。
-
-本文是针对下载类型加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
 
 ###**创建下载类型加速域名**
 
@@ -28,10 +28,10 @@ Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。
     如果“原始域类型”选择的是“自定义原始域”，那么请在“原始域”里输入您自己的原始域地址。您可以填写一个或者多个原始域ip地址，多个请以“;”分隔，如“126.1.1.1;172.1.1.1），或者原始域名，如origin.azurechina.com
     ![008](images/008.png)
 
-6. 在“自定义域”中输入要使用的自定义域名如：cdn.azurechina.com。自定义域支持泛域名加速。
+6. 在“自定义域”中输入要使用的自定义域名如：cdn1.azurechinatest.com。自定义域支持泛域名加速。
 7. 在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
 
-    原始域类型是云服务，对应的回源主机标头：
+    原始域类型是存储账户，对应的回源主机标头：
 
     ![007](images/007.png)  
     
