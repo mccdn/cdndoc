@@ -62,5 +62,5 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
 
    ![022](images/022.png)
 
-**注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
+>**注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
 
