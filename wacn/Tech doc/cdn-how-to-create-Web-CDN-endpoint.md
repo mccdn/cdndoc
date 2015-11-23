@@ -1,3 +1,9 @@
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to create Web acceleration type CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn How to create Web acceleration type CDN on Windows Azure Management Portal and default caching rules for Web CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<tags ms.service="cdn"
+    ms.date=""
+    wacn.date="11/24/2015"
+    />
+
 #Web加速CDN节点创建
 WEB加速服务是最基本也是应用最广泛的CDN加速服务，主要针对html文件，CSS，图片，JS，flash动画等更新频率低的小文件加速。通过将这些小文件缓存到Windows Azure CDN的边缘节点，减少源站的访问压力，同时满足用户就近访问网站的需求，提高网站的访问体验，进而带动网站的用户访问量。
 
@@ -24,10 +30,13 @@ Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您
 3. 在“加速类型”下拉列表中选择“WEB加速”。
 4. 在“原始域类型”下拉列表中，选择云服务，存储账户，WEB应用，或者自定义原始域。**注意**“WEB加速”不支持“媒体服务”原始域类型。
 5. 在“原始域”下拉列表中，从可用的云服务，存储帐户，或者WEB应用列表中选择一个用于创建CDN终结点。
+
     ![002](images/002.png)
     
     如果“原始域类型”选择的是“自定义原始域”，那么请在“原始域”里输入您自己的原始域地址。您可以填写一个或者多个原始域ip地址，多个请以“;”分隔，如“126.1.1.1;172.1.1.1），或者原始域名，如origin.chinaazuretest.com。    
+
     ![014](images/014.png)   
+
 6. 在“自定义域”中输入要使用的自定义域名如：cdn.chinaazuretest1.com。自定义域支持泛域名加速。**注意**自定义域名不能和原始域名相同。
 7. 在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
     
@@ -42,6 +51,7 @@ Windows Azure CDN针对Web加速设置了默认缓存规则（见下文）。您
 8. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的ICP备案号（如：京ICP备XXXXXXXX号-X）。
 
     ![003](images/003.png)
+
 9. 单击“创建”按钮以创建新的终结点。
 
 终结点创建后将出现在订阅的终结点的列表中。列表视图显示了用于访问缓存内容的自定义域以及原始域。

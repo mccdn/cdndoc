@@ -1,3 +1,9 @@
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to create Download acceleration type CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn How to create Download acceleration type CDN on Windows Azure Management Portal and default caching rules for Download CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<tags ms.service="cdn"
+    ms.date=""
+    wacn.date="11/24/2015"
+    />
+
 #下载加速CDN节点创建
 下载加速主要针对20MB以上的大文件下载，例如软件安装包、游戏客户端、应用程序、影音等大文件的下载分发。Windows Azure CDN将文件缓存到CDN边缘节点，缓解源站下载的带宽压力，提高用户下载体验。
 
@@ -51,5 +57,5 @@ Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。
 
    ![010](images/010.png)
 
-**注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
+> **注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
 

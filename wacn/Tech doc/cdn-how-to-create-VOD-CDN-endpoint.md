@@ -1,3 +1,9 @@
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to create VOD acceleration type CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn How to create VOD acceleration type CDN on Windows Azure Management Portal and default caching rules for VOD CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<tags ms.service="cdn"
+    ms.date=""
+    wacn.date="11/24/2015"
+    />
+
 #VOD视频点播加速CDN节点创建
 VOD视频点播加速服务主要针对在线音视频点播提供加速服务。随着网路视频媒体服务的兴起，越来越多的用户选择使用网络平台收听观看各种音视频。加之国内网络环境的限制，对音视频内容的最终分发提出了非常高的要求。Windows Azure CDN将音频、视频等流媒体内容分发缓存到CDN边缘节点，将用户请求指向最优节点，减少源站服务器的负载，节省带宽资源，给用户提供高速、流畅、高质量的在线视频体验。
 
@@ -26,7 +32,8 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
     ![016](images/016.png)
 
 4. 在“原始域类型”下拉列表中，选择云服务，存储账户，Web应用，媒体服务或者自定义原始域。
-5. 在“原始域”下拉列表中，从可用的存储帐户，媒体服务列表中选择一个用于创建CDN终结点。  
+5. 在“原始域”下拉列表中，从可用的存储帐户，媒体服务列表中选择一个用于创建CDN终结点。
+  
     ![017](images/017.png)
 
     如果“原始域类型”选择的是“自定义原始域”，那么请在“原始域”里输入您自己的原始域地址。您可以填写一个或者多个原始域ip地址，多个请以“;”分隔，如“126.1.1.1;172.1.1.1），或者原始域名，如origin.chazuretest.com。
@@ -43,8 +50,7 @@ Windows Azure CDN针对VOD视频点播加速设置了默认缓存规则（见下
     原始域类型是自定义原始域对应的回源主机标头：
 
     ![019](images/019.png)
-    
-      
+          
 8. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的ICP备案号（如：京ICP备XXXXXXXX号-X）。
      
     ![021](images/021.png) 
