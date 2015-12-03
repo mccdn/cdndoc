@@ -121,13 +121,11 @@ CDN另外一个典型的应用场景就是针对大文件下载进行多节点�
 
 ![][13]
 
+### 服务检查
 
+用户在创建CDN服务终节点后，可以在“服务检查”视图查看源站是否可以访问，CDN部署是否完成，CDN缓存是否正常。
 
-
-
-
-
-
+![][14]
 
 <!--Image references-->
 [1]: ./img/overview01.png
@@ -143,3 +141,4 @@ CDN另外一个典型的应用场景就是针对大文件下载进行多节点�
 [11]: ./img/overview10.png
 [12]: ./img/overview11.png
 [13]: ./img/overview12.png
+[14]: ./img/service-check.png
