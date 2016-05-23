@@ -1,6 +1,3 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to use CDN—HTTPS" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure HTTPS, CDN HTTPS, Azure caching, Azure add-ons, CDN, CDN acceleration, CDN service, mainstream CDN, multi-scenario acceleration, free CDN, CDN website acceleration, website acceleration, web page acceleration, static acceleration, download acceleration, VOD acceleration, live streaming acceleration, cloud services, storage account, cache refresh, return to source, cloud acceleration, acceleration results, node, traffic, CNAME, bandwidth, connection speed, anti-theft chain, HTTPS acceleration, low-cost bandwidth, access acceleration, CDN cache, storage account, cloud services, website, media services, ICP record number, ICP number, ICP, cache refresh, content prefetching, log download, CDN help file, CDN technical documentation" description="Learn how to create HTTPS CDN acceleration type." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn" ms.date="" wacn.date="5/3/2016" />
-
 # Azure CDN HTTPS acceleration service
 
 
