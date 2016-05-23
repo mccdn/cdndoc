@@ -17,7 +17,7 @@
 	![][3]
 
 
-更多详细内容请查阅[Microsoft Azure CDN HTTPS 加速服务](https://github.com/mccdn/cdndoc/blob/master/https/https_how_to.md)。
+更多详细内容请查阅[Azure CDN HTTPS 加速服务](https://www.azure.cn/documentation/articles/cdn-https-how-to/)。
 
 
 
