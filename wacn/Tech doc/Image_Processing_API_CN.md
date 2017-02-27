@@ -9,16 +9,16 @@ Azure CDN 图片服务 RESTful API 文档
 简介
 --
 
-Azure CDN图片服务是由`Azure CDN服务`提供的一个可靠、安全且经济的图片处理服务。
+Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经济的图片处理服务。
 
-通过`Azure CDN图片服务`，用户可以利用Azure Storage和Azure CDN服务，在任何时间、从任何位置和设备获取存储在`Microsoft Azure`上的图片或对其进行过一些处理后的版本。
+通过Azure CDN图片服务，用户可以利用Azure Storage和Azure CDN服务，在任何时间、从任何位置和设备获取存储在Microsoft Azure上的图片或对其进行过一些处理后的版本。
 
 
 
 
 ### 服务说明
 
-Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用。**
+Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN图片服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用。**
 
 除此之外，用户需要使用一个Azure Storage账户的Blob服务来上传原始待处理的图片。Azure CDN图片服务会用此服务来访问用户的原始图片。
 
@@ -59,8 +59,10 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 
 
-处理图片
+图片处理
 --
+
+### 图片处理访问规则
 
 **Host**:`{`Bucket`名称}.{区域访问域名}`
 
