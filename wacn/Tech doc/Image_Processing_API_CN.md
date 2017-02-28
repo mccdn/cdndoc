@@ -53,8 +53,14 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 #### 3. 创建“图片处理”CDN加速节点
 
+##### - 创建CDN Profile
+
+![][1]
+
+##### - 创建图片处理类型的CDN加速节点
 
 
+![][2]
 				
 
 
@@ -63,6 +69,7 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 --
 
 ### 图片处理访问规则
+
 
 **Host**:`{`Bucket`名称}.{区域访问域名}`
 
@@ -481,3 +488,10 @@ Hdya-0450277
 | 方法未实现 | 请求的方法尚未被支持 | 501 |
 
 <font style="color: red">此部分API的返回值可能在未来的版本中被修改</font>
+
+
+
+
+<!--Image references-->
+[1]: ./images/imgp01.png
+[2]: ./images/imgp02.png
