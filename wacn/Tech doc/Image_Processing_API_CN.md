@@ -76,7 +76,8 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 在进行接下来的具体图片处理之前，我们先来验证一下到目前为止的所有配置是否生效：
 
-1.  假设用户的原始图片访问链接为：` http://yourstorageaccount.blob.core.chinacloudapi.cn/container_name/img_name.jpg ` （首先确认此链接可以访问）
+1.  假设用户的原始图片访问链接为：` http://yourstorageaccount.blob.core.chinacloudapi.cn/container_name/img_name.jpg ` （首先确认此链接可以访问，即相应的container和blob文件是可以公开访问的）
+
 2.  如果经过CDN加速的原始图片访问链接 （以上图中所使用的自定义域名为例） ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg ` 可以被访问的话，可以确认所有配置生效。
 
 
@@ -221,6 +222,7 @@ __注意__
 * 字段`watermark`为必需，且其必须为Query String中的第一个字段
 * 被用于图片水印的图片必须与原始图片存在于同一个Azure Storage账户当中
 * Base64的编码转换可以使用在线工具直接处理，比如[base64encode](https://www.base64encode.org/)
+* 文本内容和文件名区分大小写，进行base64转码时需要注意
 
 ##### 水印类型
 
