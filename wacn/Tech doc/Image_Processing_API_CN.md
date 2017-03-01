@@ -40,6 +40,8 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 创建Azure Storage账户请参见 [创建存储账户](https://www.azure.cn/documentation/articles/storage-create-storage-account/)
 
+也可以不创建新的Azure Storage账户，使用一个现有的。
+
 #### 2. 上传原始图片
 
 创建好Azure Storage账户之后，用户就可以将原始图片上传到Blob当中。
@@ -53,15 +55,29 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 #### 3. 创建“图片处理”CDN加速节点
 
+“图片处理”加速类型的CDN节点仅限于在[Azure新的管理门户](https://portal.azure.cn/)中创建
+
+
 ##### - 创建CDN Profile
 
 ![][1]
 
+这一步的Azure订阅选择注意要和第一步创建Azure Storage账户所使用的订阅保持一致。
+“Price Tier”选择上图所示的S1，S1包含新增加的“image processing”加速类型。
+
 ##### - 创建图片处理类型的CDN加速节点
 
-
 ![][2]
-				
+
+如上图所示，这一步中的加速类型选择“image processing acceleration”，storage account选择第一步当中所创建的Azure Storage账户。				
+
+等这个CDN加速节点配置完成后，用户可以将自定义域名CNAME到Azure CDN平台。CNAME生效之后，就可以进行图片处理操作了。
+后续的所有原始图片以及经过处理后的图片都是经过CDN加速的。
+
+在进行接下来的具体图片处理之前，我们先来验证一下到目前为止的所有配置是否生效：
+
+1.  假设用户的原始图片访问链接为：` http://yourstorageaccount.blob.core.chinacloudapi.cn/container_name/img_name.jpg ` （首先确认此链接可以访问）
+2.  如果经过CDN加速的原始图片访问链接 （以上图中所使用的自定义域名为例） ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg ` 可以被访问的话，可以确认所有配置生效。
 
 
 
@@ -70,50 +86,30 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 ### 图片处理访问规则
 
+通过如下URL进行访问：
 
-**Host**:`{`Bucket`名称}.{区域访问域名}`
+`http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串>`
 
-**路径**:  `/v1/images/{图片名}{分隔符}{`处理字符串`或`Style`名}`
+**your_CDN_custom_domain**: 用户用来创建图片处理加速类型CDN节点的自定义域名，如：`imgprocess.yourcompany.cn`
 
-**参数**: 无
+**container_name**:  用户原始图片所在的Azure Storage container名字
 
-**方法**: GET
+**image_object**: 待处理的原始图片名称，如：`image.jpg`
 
-**请求头**: 无
+具体的`处理字符串`的解释如下。
 
-**请求体**:  无
-
-**响应体**:  所请求图片的二进制内容
 
 ### 图片处理语法
 
-#### 处理字符串
 
-`处理字符串`由两部分组成，即处理参数和格式转化参数：
-
-* 处理参数部分是一个由形如`{值}{参数关键字}`的单一参数由字符`_`相接而成的字符串；
-* 格式转换部分则为一段形如`.{对应格式后缀名}`的字符串
-
-__注意__ 两个部分都是可选的，但当两者都存在时，前者应处在后者之前。
-
-
-#### 分隔符
-
-
-| 分隔符名称 | 分隔符 | 定义 |
-|:----|:----|
-| 处理字符串 分隔符 | @ | 分割图片名与`处理字符串` |
-| Style 分隔符 | @! | 分割图片名与预定义的`Style`名 |
-
-
-###`处理字符串`的详细定义
+#### `处理字符串`的详细定义
 
 `处理字符串`是若干个形如`{值}{参数关键字}`参数的组合，每个参数之间由`_`相互连接；
 
 若需要进行格式转换则`Process String`必须以`.{目标格式扩展名}`结尾
 
 
-#### 支持的图片操作（参数）
+#### 支持的基本图片操作（参数）
 
 
 | 操作名 | 语法 | 备注 |
@@ -175,6 +171,32 @@ __注意__
 | 4 | 锁定宽高比且短边优先，并在缩放后以指定颜色填充空白区域（若颜色未指定则自动采用白色填充） |
 
 **注意** 此处`长边`与`短边`的概念基于`原始长度 / 目标长度`的**比值**决定.
+
+
+#### 示例 （持续更新中）
+
+假设 ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg ` 是经过Azure CDN加速的原始图片URL
+
+![][3]
+
+##### 1. 将原始图片缩小到原来的60%：
+
+` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p `
+
+![][4]
+
+##### 2. 将原始图片进行圆角矩形处理（圆角半径为20）：
+
+` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=20-2ci `
+
+![][5]
+
+##### 3. 将原始图片先缩小到原来的60%，然后在进行圆角处理（圆角半径为20）：
+
+` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci `
+
+![][6]
+
 
 
 
@@ -318,180 +340,11 @@ __注意__
 
 
 
-搜索图片
---
-
-**Host**:`{`Bucket`名称}.{区域访问域名}`
-
-**路径**: `/v1/ImageMetadatas`
-
-**参数**: 
-
-请参阅[此处](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html)Elasticsearch文档。
-
-**方法**: POST
-
-**请求头**: 无
-
-**请求体**:
-
-描述请求的JSON对象
-
-详情请参阅[此处](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)Elasticsearch文档。
-
-**请求体示例**
-
-  {  
-    "query": {
-      "match": {
-        "analysisResult.description.tags": {
-          "query": "sunset"
-        }
-      }
-    }
-  }
-
-**响应体**:  
-
-JSON格式数组,由一一对应于查询结果的至少包含以下字段的JSON对象所构成:
-
-| 名称 | 描述 |
-|:--- | :----------------------------------------------------------------------------------------------------------- | 
-| Id | 对应图片的ID,即其MD5散列值 |
-| AnalysisResult | 对应图片的分析结果,其详情请参阅下方表格 |
-
-`AnalysisResult`为包含至少以下字段的JSON对象:
-
-| 名称 | 描述 |
-|:--- | :----------------------------------------------------------------------------------------------------------- | 
-| Metadata | 原图的基本信息，包含高度值`Height`, 宽度值`Width`和格式名称`Format`等字段的JSON格式对象 |
-| Color | 原图的颜色分析结果, 包含16进制8位RGB色彩`AccentColor`,主要前景色名称`DominantColorForeground`， 主要背景色名称`DominantColorBackground`， 包含主要色彩名称的数组`DominantColors`以及表示图片是否为黑白图片的布尔值`IsBWImg`等字段的JSON格式对象 |
-| Adult | 原图的内容分级分析结果, 包含标识原图是否为成人内容的布尔值`IsAdultContent`及其浮点数置信度`AdultScore`和表示原图是否包含不雅内容的布尔值`IsRacyContent`及其置信度`RacyScore`等字段的JSON格式对象 |
-| Categories | 原图的分类分析结果，包含分类对象的JSON数组，其中每个分类对象为至少包含文本类别名`Name`及其浮点数置信度`Score`等字段的JSON对象 |
-| Faces | 原图人脸识别结果，包含每个人脸对应描述对象的JSON数组，其中每个对象为包含推测年龄`Age`，推测性别`Gender`和人脸位置`FaceRectangle`等字段的JSON对象，其中`FaceRectangle`的内容为包含图上人脸宽度`Width`,高度`Height`，水平位置`Left`及垂直位置`Top`等字段的JSON对象 |
-| Tags | 原图的分类分析结果，由每个标签对应JSON对象组成的JSON数组，其中每个元素至少包含标签名`Name`,浮点数置信度`Confidence`等字段 |
-| Description | 原图内容的分析结果，包含由标签名组成的数组`Tags`和有描述对象组成的额数组`Captions`等字段组成的JSON对象，其中`Captions`字段内容的每个元素都为一个包含对图片内容进行描述的语句`Test`的字段的JSO对象 |
-
-
-**响应体示例**:
-
-	[
-    {
-      "Id":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "AnalysisResult":{
-            "RequestId":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "Metadata":
-            {
-                "Height":250,
-                "Width":236,
-                "Format":"Png"
-            },
-            "ImageType":null,
-            "Color":
-            {
-              "AccentColor":"923D39",
-              "DominantColorForeground":"Brown",
-              "DominantColorBackground":"Black",
-              "DominantColors": [ "Black","Brown" ],
-              "IsBWImg":false
-            },
-            "Adult":
-            {
-                "IsAdultContent":false,
-                "IsRacyContent":false,
-                "AdultScore":0.0245902631431818,
-                "RacyScore":0.015675213187932968
-            },
-            "Categories": 
-            [
-                {
-                  "Name":"people_portrait",
-                  "Score":0.98828125
-                }
-            ],
-            "Faces": 
-            [
-                {
-                  "Age":60,
-                  "Gender":"Male",
-                  "FaceRectangle":
-                  {
-                      "Width":164,"Height":164,"Left":31,"Top":66
-                  }
-                }
-            ],
-            "Tags":
-            [
-                {
-                  "Name":"person","Confidence":0.99807929992675781,"Hint":null
-                },
-                {
-                  "Name":"man","Confidence":0.98912441730499268,"Hint":null
-                },
-                {
-                  "Name":"indoor","Confidence":0.981221616268158,"Hint":null
-                },
-                {
-                  "Name":"wall","Confidence":0.95026427507400513,"Hint":null
-                }
-            ],
-            "Description":
-            {
-              "Tags":
-      				["person","man","indoor","looking","sitting","camera","glasses","wearing","suit",
-                "shirt","smiling","holding","close","black","food","white","table","red","standing"],
-              "Captions":
-              [
-                {
-                    "Text":"a man is smiling at the camera","Confidence":0.36183552978964767
-                }
-      				]
-            }
-        }
-    }
-	]
-	
-<font style="color: red">此部分API的参数或调用方式可能在未来的版本中被修改</font>
-
-
-
-
-错误响应
---
-
-当出现错误时（无效的参数或不存在的图片），`Azure图片服务`将返回对应的错误代码和包含至少以下字段的JSON对象：
-
-| 字段名 | 描述 | 
-|:------|:-------------------- |
-| error | 错误码 | 
-| title | 错误名称 |
-| detail | 错误详细信息 |
-Hdya-0450277
-**响应体示例**
-
-	{
-		"error": 404, 
-		"title": "Bucket not found",
-		"detail": "Unable to find bucket 'bucketnotexist'"
-	}
-	
-可能的错误来源
-
-| 来源 | 描述 | 错误码 / HTTP状态码 |
-| ------ | ----------------------------------------------------- | ---------- |
-| 参数错误 | 参数的格式错误，或包含了不存在的参数关键字或非法的参数值 | 400 |
-| 图片尺寸过大 | 指定参数导致图片在处理过程中尺寸大于限制 | 400 |
-| 未被授权 | 请求使用了错误的或没有对应权限的授权Token | 401 |
-| `Bucket`错误 | 请求使用的`Bucket`名称非法或对应`Bucket`不存在 | 404 |
-| 文件过大 | 操作所需的图片文件尺寸大于限制 | 413 |
-| 内部错误 | 服务器出现了一个内部错误 | 500 |
-| 方法未实现 | 请求的方法尚未被支持 | 501 |
-
-<font style="color: red">此部分API的返回值可能在未来的版本中被修改</font>
-
-
-
 
 <!--Image references-->
 [1]: ./images/imgp01.png
 [2]: ./images/imgp02.png
+[3]: ./images/azure.jpg
+[4]: ./images/60p.jpg
+[5]: ./images/20ci.jpg
+[6]: ./images/60p_20ci.jpg
