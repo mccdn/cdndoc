@@ -192,7 +192,7 @@ __注意__
     "Width":221,
     "Height":284,
     "Size":119540,
-    "MimeType":"image/png"
+    "MimeType":"Jpeg"
   }
 
 
