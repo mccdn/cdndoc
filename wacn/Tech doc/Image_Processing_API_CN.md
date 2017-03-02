@@ -196,6 +196,20 @@ __注意__
   }
 
 
+#### 图片主色调响应体
+
+包含至少以下字段的JSON对象:
+
+| 名称 | 内容 |
+|:--- | :--------------------------------- | 
+| RGB | RGB色彩空间下十六进制表示的图片主色调 |
+
+##### 响应体示例
+
+  {
+    "RGB": 0x000000
+  }
+
 
 
 #### 示例 （持续更新中）
@@ -234,6 +248,13 @@ __注意__
 ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif`
 
 `{"Orientation":1,"XResolution":72.0,"YResolution":72.0,"ResolutionUnit":2,"Software":"Adobe Photoshop CS5 Windows","DateTime":"2014:04:15 16:43:14","ColorSpace":1,"PixelXDimension":800,"PixelYDimension":400}`
+
+##### 6. 获取图片主色调：
+
+` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve`
+
+`{"RGB":"0296C8"}`
+
 
 
 #### 水印操作
