@@ -192,11 +192,11 @@ __注意__
 
 ```json
 {
-  Width: 221,
-  Height: 284,
-  Size: 119540,
-  AveColor: null,
-  MimeType: "Jpeg"
+    "Width": 221,
+    "Height": 284,
+    "Size": 119540,
+    "AveColor": null,
+    "MimeType": "Jpeg"
 }
 ```
 
@@ -255,11 +255,11 @@ http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=info
 
 ```json
 {
-    Width: 800,
-    Height: 400,
-    Size: 87341,
-    AveColor: null,
-    MimeType: "Jpeg"
+    "Width": 800,
+    "Height": 400,
+    "Size": 87341,
+    "AveColor": null,
+    "MimeType": "Jpeg"
 }
 ```
 
@@ -271,15 +271,15 @@ http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif
 
 ```json
 {
-    Orientation: 1,
-    XResolution: 72.0,
-    YResolution: 72.0,
-    ResolutionUnit: 2,
-    Software: "Adobe Photoshop CS5 Windows",
-    DateTime: "2014:04:15 16:43:14",
-    ColorSpace: 1,
-    PixelXDimension: 800,
-    PixelYDimension: 400
+    "Orientation": 1,
+    "XResolution": 72.0,
+    "YResolution": 72.0,
+    "ResolutionUnit": 2,
+    "Software": "Adobe Photoshop CS5 Windows",
+    "DateTime": "2014:04:15 16:43:14",
+    "ColorSpace": 1,
+    "PixelXDimension": 800,
+    "PixelYDimension": 400
 }
 ```
 
@@ -291,7 +291,7 @@ http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve
 
 ```json
 {
-    RGB: "0296C8"
+    "RGB": "0296C8"
 }
 ```
 
