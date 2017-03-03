@@ -18,7 +18,7 @@ Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经�
 
 ### 服务说明
 
-Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN图片服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用。**
+Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN图片服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用**。
 
 除此之外，用户需要使用一个Azure Storage账户的Blob服务来上传原始待处理的图片。Azure CDN图片服务会用此服务来访问用户的原始图片。
 
@@ -29,8 +29,8 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 #### 限制
 
 ##### 1. 支持格式转换的文件格式包括 jpg, png, bmp, webp, gif
-##### 2. 图片源文件的大小不可大于20MB。
-##### 3. 处理后的图片尺寸不得大于 4096 * 4096像素, 且任意边边长不得大于 4096*4像素
+##### 2. 图片源文件的大小不可大于 20MB
+##### 3. 处理后的图片尺寸不得大于 4096 * 4096 像素, 且任意边边长不得大于 4096*4 像素
 
 
 ### 服务创建流程
@@ -89,7 +89,9 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 通过如下URL进行访问：
 
-`http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串>`
+```
+http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串>
+```
 
 **your_CDN_custom_domain**: 用户用来创建图片处理加速类型CDN节点的自定义域名，如：`imgprocess.yourcompany.cn`
 
@@ -188,13 +190,15 @@ __注意__
 
 响应体示例
 
-  {
-    "Width":221,
-    "Height":284,
-    "Size":119540,
-    "MimeType":"Jpeg"
-  }
-
+```json
+{
+  Width: 221,
+  Height: 284,
+  Size: 119540,
+  AveColor: null,
+  MimeType: "Jpeg"
+}
+```
 
 #### 图片主色调响应体
 
@@ -206,11 +210,11 @@ __注意__
 
 ##### 响应体示例
 
-  {
-    "RGB": 0x000000
-  }
-
-
+```json
+{
+    "RGB": "273B2A"
+}
+```
 
 #### 示例 （持续更新中）
 
@@ -220,41 +224,76 @@ __注意__
 
 ##### 1. 将原始图片缩小到原来的60%：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p `
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p
+```
 
 ![][4]
 
 ##### 2. 将原始图片进行圆角矩形处理（圆角半径为20）：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=20-2ci `
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=20-2ci
+```
 
 ![][5]
 
 ##### 3. 将原始图片先缩小到原来的60%，然后再进行圆角处理（圆角半径为20）：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci `
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci 
+```
 
 ![][6]
 
 
 ##### 4. 获取图片信息：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=info`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=info
+```
 
-`{"Width":800,"Height":400,"Size":87341,"AveColor":null,"MimeType":"Jpeg"}`
+```json
+{
+    Width: 800,
+    Height: 400,
+    Size: 87341,
+    AveColor: null,
+    MimeType: "Jpeg"
+}
+```
 
 ##### 5. 获取图片的EXIF信息：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif
+```
 
-`{"Orientation":1,"XResolution":72.0,"YResolution":72.0,"ResolutionUnit":2,"Software":"Adobe Photoshop CS5 Windows","DateTime":"2014:04:15 16:43:14","ColorSpace":1,"PixelXDimension":800,"PixelYDimension":400}`
+```json
+{
+    Orientation: 1,
+    XResolution: 72.0,
+    YResolution: 72.0,
+    ResolutionUnit: 2,
+    Software: "Adobe Photoshop CS5 Windows",
+    DateTime: "2014:04:15 16:43:14",
+    ColorSpace: 1,
+    PixelXDimension: 800,
+    PixelYDimension: 400
+}
+```
 
 ##### 6. 获取图片主色调：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve
+```
 
-`{"RGB":"0296C8"}`
-
+```json
+{
+    RGB: "0296C8"
+}
+```
 
 
 #### 水印操作
@@ -337,22 +376,27 @@ __注意__
 
 ##### 1. 将原始图片加入水印图片：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
+```
 
 ![][7]
 
 ##### 2. 将原始图片先缩小到原来的60%，然后再进行圆角处理（圆角半径为20），最后加入图片水印（注意此处使用管道**|**操作符）：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
+```
 
 ![][8]
 
 ##### 3. 将原始图片先缩小到原来的60%，然后再进行圆角处理（圆角半径为20），最后加入文字水印（注意此处使用管道**|**操作符），文字内容为“Azure China CDN”，字体为“微软雅黑”：
 
-` http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=2;p=3;s=50;text=QXp1cmUgQ2hpbmEgQ0RO;type=bWljcm9zb2Z0eWFoZWk=`
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=2;p=3;s=50;text=QXp1cmUgQ2hpbmEgQ0RO;type=bWljcm9zb2Z0eWFoZWk=
+```
 
 ![][10]
-
 
 
 <!--Image references-->
