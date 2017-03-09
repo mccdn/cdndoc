@@ -117,7 +117,7 @@ http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串
 
 | 操作名 | 语法 | 备注 |
 |:----------|:-------------------------------------------------------------|:-------------------------------------|
-| 缩放和裁剪 | `{Percentage}p`,`{Height}h`,`{Width}w`,`{ScaleType}e`,`{Cut}c`,`{HandleIfLarger}l`,`{Red}-{Green}-{Blue}bgc`, 详情请参阅下方表格 ||
+| 缩放和裁剪 | `{Percentage}p`,`{Height}h`,`{Width}w`,`{ScaleType}e`,`{Cut}c`,`{HandleIfLarger}l`,`{Red}-{Green}-{Blue}bgc`。若要使用`{Red}-{Green}-{Blue}bgc`参数，请必须与`{ScaleType}e`及`{Height}h`,`{Width}w`参数一起使用。详情请参阅下方表格 ||
 | 高级裁剪 | `{x}-{y}-{Width}-{Height}a`, 其中`{x}`和`{y}`分别定义了裁剪开始位置的横纵坐标（以原图左上角的像素为原点）,`{Width}`和`{Height}`分别定义了裁剪区域的宽高, 取值 1-4096 | 原图范围以外的裁剪开始位置将导致 400`Bad Request`，超过原图范围或指定宽高为零的裁剪将裁减到原图结束位置 |
 | 区域裁剪 | `{Width}x{Height}-{Position}`rc, 其中`{Width}`和`{Height}`分别定义了裁剪区域的宽高, 取值 0-4096，裁剪将按照`{Position}`定义的对其方式进行，不同取值的含义请参阅下方表格| 定义比原图尺寸更大的宽高值将导致返回原图,为空或为零的`Height`或`Width`表示使用原图的宽或高 |
 | 内切圆 | `{Radius}-{Type}ci`, 其中`{Radius}`指定了内切圆的半径,`{Type}`: 为取值0或1的整数，若为 1，则将图像裁剪为能容纳内切圆的最小正方形后返回，否则不进行裁剪 ||
@@ -126,7 +126,7 @@ http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串
 | 旋转 | `{Degree}r`, 其中`{Degree}`为图片顺时针旋转的度数 ||
 | 锐化 | `{Degree}sh`, 其中`{Degree}`为指定锐化程度的非负整数 ||
 | 模糊 | `{Radius}-{Sigma}bl`, 其中`{Radius}`为模糊半径，`{Sigma}`为模糊标准差 ||
-| 亮度与对比度 | `{Brightness}b`,`{Contrast}c`, 其中`{Brightness}`为一个可以为负的整数，表示亮度相对原图进行的调整, 同时`{Contrast}`是一个可以为负的整数，表示对比度相对原图进行的调整 ||
+| 亮度与对比度 | `{Brightness}b`,`{Contrast}d`, 其中`{Brightness}`为一个可以为负的整数，表示亮度相对原图进行的调整, 同时`{Contrast}`是一个可以为负的整数，表示对比度相对原图进行的调整 ||
 | 图像质量 | `{Degree}q`, 其中`{Degree}`为表示图像质量的整数值，取值0-100 | 当且仅当输出格式为`jpg/jpeg`时有效 |
 | 格式转换 | `.{format}`, 其中`{format}`为目标格式 | 目前支持的格式包括`jpg`,`jpeg`,`png`,`webp`及`gif` |
 | 渐进显示 | `{Setting}pr`, 其中`{Setting}`是一个取值0-1的整数，当其为1时，图像将随着加载的进行渐进呈现给用户 | 当且仅当输出格式为`jpg/jpeg`时有效 |
