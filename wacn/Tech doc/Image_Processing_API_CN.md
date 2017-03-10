@@ -48,6 +48,8 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 这里提供两种上传方式：
 
+#####  - [通过Azure新版管理门户直接上传](https://portal.azure.cn)
+
 #####  - [通过Azure Storage API](https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
 #####  - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
