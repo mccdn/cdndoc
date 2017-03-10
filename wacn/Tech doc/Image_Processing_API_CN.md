@@ -307,7 +307,7 @@ http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve
 | s | 定义水印透明度的整数，取值 0-100 |
 | text | 定义水印文本内容的经过`Base64`编码的字符串 |
 | type | 定义水印文本所采用字体的名称经过`Base64`编码的字符串，支持字体请参阅下方表格 |
-| color | 定义水印文本颜色的经过`Base64`编码的8位RGB色彩空间下的六位十六进制数字 |
+| color | 定义水印文本颜色的经过`Base64`编码的8位RGB色彩空间下的六位十六进制数字。比如`白色`，值为`ffffff`，`Base64`编码后为`ZmZmZmZm`, |
 | size | 定义水印文本字号的正整数 |
 | object | 图片水印所使用图片的文件名经过`Base64`编码的字符串 |
 
