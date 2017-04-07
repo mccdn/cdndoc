@@ -11,7 +11,7 @@ Azure CDN 图片服务 RESTful API 文档
 
 Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经济的图片处理服务。
 
-通过Azure CDN图片服务，用户可以利用Azure Storage和Azure CDN服务，在任何时间、从任何位置和设备获取存储在Microsoft Azure上的图片或对其进行过一些处理后的版本。
+通过Azure CDN图片服务，用户可以利用Azure CDN服务，在任何时间、从任何位置和设备获取处理过的图片版本。
 
 
 
@@ -20,7 +20,7 @@ Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经�
 
 Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN图片服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用**。
 
-除此之外，用户需要使用一个Azure Storage账户的Blob服务来上传原始待处理的图片。Azure CDN图片服务会用此服务来访问用户的原始图片。
+用户需要提供一个可供访问的存储图片的站点或存储，或者提供一个Azure Storage账号的Blob服务存放原始待处理的图片。Azure CDN图片服务会通过该图片站点或者Azure Storage Blob服务来访问用户的原始图片。
 
 目前Azure CDN图片服务没有提供相应的图形化管理界面，相应的CDN加速节点创建好之后，所有的图片处理请求目前都是通过RESTful API的形式来提供访问。
 
@@ -36,52 +36,52 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 ### 服务创建流程
 
 
-#### 1. 创建Azure Storage 账户
-
-创建Azure Storage账户请参见 [创建存储账户](https://www.azure.cn/documentation/articles/storage-create-storage-account/)
-
-也可以不创建新的Azure Storage账户，使用一个现有的。
-
-#### 2. 上传原始图片
-
-创建好Azure Storage账户之后，用户就可以将原始图片上传到Blob当中。
-
-这里提供两种上传方式：
-
-#####  - [通过Azure新版管理门户直接上传](https://portal.azure.cn)
-
-#####  - [通过Azure Storage API](https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/)
-
-#####  - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
-
-
-#### 3. 创建“图片处理”CDN加速节点
-
 “图片处理”加速类型的CDN节点仅限于在[Azure新的管理门户](https://portal.azure.cn/)中创建
 
 
-##### - 创建CDN Profile
+#### 1. 创建CDN Profile
 
 ![][1]
 
 这一步的Azure订阅选择注意要和第一步创建Azure Storage账户所使用的订阅保持一致。
 “Price Tier”选择上图所示的S1，S1包含新增加的“image processing”加速类型。
 
-##### - 创建图片处理类型的CDN加速节点
+#### 2. 创建图片处理类型的CDN加速节点
 
 ![][2]
 
-如上图所示，这一步中的加速类型选择“image processing acceleration”，storage account选择第一步当中所创建的Azure Storage账户。				
+如上图所示，这一步中的加速类型选择“image processing acceleration”。选完加速类型后，再根据源站的情况，选择对应的源站类型。
 
 等这个CDN加速节点配置完成后，用户可以将自定义域名CNAME到Azure CDN平台。CNAME生效之后，就可以进行图片处理操作了。
 后续的所有原始图片以及经过处理后的图片都是经过CDN加速的。
 
-在进行接下来的具体图片处理之前，我们先来验证一下到目前为止的所有配置是否生效：
+#### 3. 验证图片可以访问
+
+在进行接下来的具体图片处理之前，我们先来验证一下到目前为止的所有配置是否生效（以用户使用Azure Storage账户的Blob服务作为图片服务的源站为例）：
+
+##### 3.1 创建Azure Storage 账户并选择Azure Storage账户作为源站
+
+创建Azure Storage账户请参见 [创建存储账户](https://www.azure.cn/documentation/articles/storage-create-storage-account/)
+
+也可以不创建新的Azure Storage账户，使用一个现有的。
+
+##### 3.2 上传原始图片
+
+创建好Azure Storage账户之后，用户就可以将原始图片上传到Blob当中。
+
+这里提供两种上传方式：
+
+######  - [通过Azure新版管理门户直接上传](https://portal.azure.cn)
+
+######  - [通过Azure Storage API](https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/)
+
+######  - [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
+
+##### 3.3 访问验证
 
 1.  假设用户的原始图片访问链接为：` http://yourstorageaccount.blob.core.chinacloudapi.cn/container_name/img_name.jpg ` （首先确认此链接可以访问，即相应的container和blob文件是可以公开访问的）
 
 2.  如果经过CDN加速的原始图片访问链接 （以上图中所使用的自定义域名为例） ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg ` 可以被访问的话，可以确认所有配置生效。
-
 
 
 图片处理
