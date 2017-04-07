@@ -20,7 +20,7 @@ Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经�
 
 Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，所以使用Azure CDN图片服务的前提是首先创建一个名为“图片处理”加速类型的CDN加速节点。**图片服务本身无法作为一个单独Azure服务来使用**。
 
-用户需要提供一个可供访问的存储图片的站点或存储，或者提供一个Azure Storage账号的Blob服务存放原始待处理的图片。Azure CDN图片服务会通过该图片站点或者Azure Storage Blob服务来访问用户的原始图片。
+用户需要提供一个可供访问的存储图片的站点或存储，或者提供一个Azure Storage账号的Blob服务存放原始待处理的图片。Azure CDN图片服务会通过该图片站点、存储，或者Azure Storage Blob服务来访问用户的原始图片。
 
 目前Azure CDN图片服务没有提供相应的图形化管理界面，相应的CDN加速节点创建好之后，所有的图片处理请求目前都是通过RESTful API的形式来提供访问。
 
@@ -43,7 +43,7 @@ Azure CDN图片服务是作为Azure CDN服务的一个增值功能引入的，�
 
 ![][1]
 
-这一步的Azure订阅选择注意要和第一步创建Azure Storage账户所使用的订阅保持一致。
+这一步的Azure订阅选择注意要和第一步创建Azure Storage账户所使用的订阅保持一致，如果图片是存储在Azure Storage中。
 “Price Tier”选择上图所示的S1，S1包含新增加的“image processing”加速类型。
 
 #### 2. 创建图片处理类型的CDN加速节点
