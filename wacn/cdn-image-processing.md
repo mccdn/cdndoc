@@ -14,11 +14,7 @@ Azure China CDN团队以用户需求为导向，迅速迭代开发出“图片�
 
    ![1]
 
-<<<<<<< HEAD
 心动不如行动，快去[Azure门户预览](https://portal.azure.cn/)体验Azure中国CDN的图片处理功能吧！更多详情，请参考[Azure CDN 图片服务 RESTful API 文档](http://wacn-ppe.chinacloudsites.cn/documentation/articles/cdn-image-processing).
-=======
-心动不如行动，快去Azure门户预览体验Azure中国CDN的图片处理功能吧！更多详情，请参考Azure China CDN图片处理。
->>>>>>> origin/master
 
 
 <!--Image references-->
