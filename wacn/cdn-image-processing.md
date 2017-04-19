@@ -14,7 +14,7 @@ Azure China CDN团队以用户需求为导向，迅速迭代开发出“图片�
 
    ![1]
 
-心动不如行动，快去新的Azure管理门户体验Azure中国CDN的图片处理功能吧！更多详情，请参考Azure China CDN图片处理。
+心动不如行动，快去Azure门户预览体验Azure中国CDN的图片处理功能吧！更多详情，请参考Azure China CDN图片处理。
 
 
 <!--Image references-->
