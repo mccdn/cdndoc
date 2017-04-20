@@ -10,7 +10,9 @@
 - 流量查询-  按月、天、小时、分钟，根据订阅或者单个域名查看流量信息
 - 内容管理- 缓存刷新、预加载
 
-想要使用API实现CDN资源管理的用户，快去Azure China CDN Restful API文档了解更多吧。
+##后续更新
 
-Azure China CDN团队正紧锣密鼓的开发其他基于API的功能，比如日志分析查看用户请求的地域、终端分布、热门URL、请求状态码分布等，HTTPS自定义证书上传等功能。敬请期待。
+- 想要使用API实现CDN资理的用户，快去Azure China CDN Restful API文档了解更多吧。
+- Azure China CDN团队正紧锣密鼓的开发其他基于API的功能，比如日志分析查看用户请求的地域、终端分布、热门URL、请求状态码分布等，HTTPS自定义证书上传等功能。敬请期待。
+- 如果您对我们的产品有任何意见或者建议，欢迎到我们的[产品反馈](http://www.windowsazure.cn/product-feedback)页面进行反馈。我们的产品团队会针对您的反馈对产品做出改进。
 
