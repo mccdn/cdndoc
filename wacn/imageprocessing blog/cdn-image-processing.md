@@ -12,19 +12,25 @@ Azure China CDN团队以用户需求为导向，迅速迭代开发出“图片�
 
 下面简单演示了对经过CDN加速的图片进行缩放和加水印的过程，可以看到在CDN加速域名后加上相应的参数即可得到期待处理的效果。
 
-1.	直接访问经过CDN加速的图片：
+1.直接访问经过CDN加速的图片：
+
+   ![1]
  
-2.	在域名后加上？basic=80p，对图片进行80%缩放：
+2.在域名后加上？basic=80p，对图片进行80%缩放：
 
- 
+   ![2]
 
-3.	在第二步的基础上，在图片右上角加上文字类型的水印：
+3.在第二步的基础上，在图片右上角加上文字类型的水印：
 
- 
+   ![3]
 
 
-心动不如行动，快去[Azure门户预览](https://portal.azure.cn/)体验Azure中国CDN的图片处理功能吧！更多详情，请参考[Azure CDN 图片服务 RESTful API 文档](https://www.azure.cn/documentation/articles/cdn-image-processing/).
+##后续更新
 
+- 心动不如行动，快去[Azure门户预览](https://portal.azure.cn/)体验Azure中国CDN的图片处理功能吧！更多详情，请参考[Azure CDN 图片服务 RESTful API 文档](https://www.azure.cn/documentation/articles/cdn-image-processing/)。
+- 如果您对我们的产品有任何意见或者建议，欢迎到我们的[产品反馈页面](https://www.azure.cn/product-feedback)进行反馈。我们的产品团队会针对您的反馈对产品做出改进。
 
 <!--Image references-->
-[1]: ./img/image-processing2.gif
+[1]: ./img/origin.png
+[2]: ./img/resize.png
+[3]: ./img/final.png

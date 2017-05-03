@@ -297,18 +297,9 @@ img {
 <p>通过Azure China CDN的图片处理功能，可以实现缩放、裁剪、旋转、锐化、模糊、管道、水印亮度对比、图片格式转换、获取图片信息等功能，灵活适配各种终端大小、不同页面的图片展示样式和水印防盗等需求。</p>
 <p>图片处理功能作为Azure China CDN的增值服务免费提供给所有用户，用户需要创建一个“图片处理”加速类型的CDN加速节点。目前该服务没有图形化管理界面，CDN节点创建好之后，所有的图片处理请求都是通过Restful API的形式提供给用户，直接引用CDN加速域名加上控制图片尺寸、裁剪模式以及质量等图片处理参数，即可访问经过处理的图片版本。</p>
 <h2>使用Azure China CDN图片处理功能效果图</h2>
-<p>下面简单演示了对经过CDN加速的图片进行缩放和加水印的过程，可以看到在CDN加速域名后加上相应的参数即可得到期待处理的效果。</p>
-<p>1.直接访问经过CDN加速的图片：</p>
-<p><img src="./img/origin.png" alt="1" /></p>
-<p>2.在域名后加上？basic=80p，对图片进行80%缩放：</p>
-<p><img src="./img/resize.png" alt="2" /></p>
-<p>3.在第二步的基础上，在图片右上角加上文字类型的水印：</p>
-<p><img src="./img/final.png" alt="3" /></p>
-<h2>后续更新</h2>
-<ul>
-<li>心动不如行动，快去<a href="https://portal.azure.cn/">Azure门户预览</a>体验Azure中国CDN的图片处理功能吧！更多详情，请参考<a href="https://www.azure.cn/documentation/articles/cdn-image-processing/">Azure CDN 图片服务 RESTful API 文档</a>。</li>
-<li>如果您对我们的产品有任何意见或者建议，欢迎到我们的<a href="https://www.azure.cn/product-feedback">产品反馈页面</a>进行反馈。我们的产品团队会针对您的反馈对产品做出改进。</li>
-</ul>
+<p>下面这个小动画简单演示了对经过CDN加速的图片进行缩放和加水印的过程，可以看到在CDN加速域名后加上相应的参数即可得到期待处理的效果。</p>
+<p><img src="./img/image-processing2.gif" alt="1" /></p>
+<p>心动不如行动，快去<a href="https://portal.azure.cn/">Azure门户预览</a>体验Azure中国CDN的图片处理功能吧！更多详情，请参考<a href="http://wacn-ppe.chinacloudsites.cn/documentation/articles/cdn-image-processing">Azure CDN 图片服务 RESTful API 文档</a>.</p>
 <!--Image references-->
 
 </body>
