@@ -7,14 +7,15 @@
  
 # Azure CDN API签名机制
 
-Azure CDN服务会对每个访问请求进行身份验证，需要使用HTTPS协议提交请求，并在请求中包含签名信息。 Azure CDN通过Key ID和Key Value的安全散列算法SHA对请求者身份进行验证，密钥可以到[Azure CDN新版管理门户](https://www.azure.cn/documentation/articles/cdn-management-v2-portal-how-to-use/)的密钥管理处申请和管理。
+Azure CDN服务会对每个访问请求进行身份验证，需要使用HTTPS协议提交请求，并在请求中包含签名信息。
 
-签名信息以Authorization请求头发送，格式为"AzureCDN {Key ID}:{用密钥值计算出来的SHA 256请求内容签名}"。
+Azure CDN通过对签名参数使用Key Value进行HMAC-SHA 256散列算法计算生成token，从而进行身份验证。签名信息以Authorization请求头发送，格式为"AzureCDN {Key ID}:{token}"。
 
-签名部分包括：请求绝对路径，用 ", "连接起来的排序过的查询参数，请求的UTC时间戳，大写的请求方法。以上几部分用回车换行连接。
+Key ID和Key Value可以到[Azure CDN新版管理门户](https://www.azure.cn/documentation/articles/cdn-management-v2-portal-how-to-use/)的密钥管理处申请和管理。**签名参数**部分包括：请求绝对路径，用 ", "连接起来的排序过的查询参数，请求的UTC时间戳，大写的请求方法。以上几部分用回车换行连接。
 
+## Token生成示例
 
-## Python示例
+### Python
 ```
 def calculate_authorization_header(request_url, request_timestamp, key_id, key_value, http_method):
     urlparts = urllib.parse.urlparse(request_url)
@@ -25,7 +26,7 @@ def calculate_authorization_header(request_url, request_timestamp, key_id, key_v
     return "AzureCDN %s:%s" % (key_id, digest)
 ```
 
-## Java示例
+### Java
 ```
 public static String calculateAuthorizationHeader(String requestURL, String requestTimestamp, String keyID, String keyValue, String httpMethod) throws Exception {
               URL url = new URL(requestURL);
@@ -67,7 +68,7 @@ public static String calculateAuthorizationHeader(String requestURL, String requ
               return String.format("AzureCDN %s:%s", keyID, hash.toString().toUpperCase());
 }
 ```
-## Go示例
+### Go
 ```
 func calculateAuthorizationHeader(requestURL, requestTimeStamp, keyID, keyValue, httpMethod string) string {
             u, err := url.Parse(requestURL)
@@ -97,9 +98,10 @@ func calculateAuthorizationHeader(requestURL, requestTimeStamp, keyID, keyValue,
  }
 ```
 
-## C Sharp示例
+### C Sharp
 ```
-public static string CalculateAuthorizationHeader(string requestUrl, string requestDate, string key, string httpMethod)
+{
+	public static string CalculateAuthorizationHeader(string requestUrl, string requestDate, string key, string httpMethod)
 {
           Uri requestUri = new Uri(requestUrl);
 
@@ -135,5 +137,7 @@ public static string CalculateAuthorizationHeader(string requestUrl, string requ
 
               return sbinary;
           }
+	}
 }
 ```
+
