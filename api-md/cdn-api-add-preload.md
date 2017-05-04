@@ -38,9 +38,9 @@
 ### 请求 Headers
 
 | 请求包头 | 描述 |
-|-----------|:-----------:|
+|-----------|-----------|
 | x-azurecdn-request-date | 必填。符合yyyy-MM-dd hh:mm:ss格式的UTC当前请求时间 |
-| Authorization | 必填。授权头[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/) |
+| Authorization | 必填。授权头请参考[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/) |
 | content-type | 必填。application/json |
 
 
