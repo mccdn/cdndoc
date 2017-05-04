@@ -48,14 +48,14 @@
   </tr>
   <tr>
     <td>Authorization</td>
-    <td>必填。授权头，具体算法请参考[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/)。</td>
+    <td>必填。授权头，具体算法请参考<a href="https://www.azure.cn/documentation/articles/cdn-api-signature/">CDN API签名机制</a> 。</td>
   </tr>
   <tr>
     <td>content-type</td>
     <td>必填。application/json</td>
   </tr>
 </table>
-
+ 
 ### 请求 Body
 添加内容预取，需写明一下参数，JSON示例文件如下：
 ```
