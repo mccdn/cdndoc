@@ -36,31 +36,12 @@
 </table>
 
 ### 请求 Headers
-<table width="100%" border="1" cellspacing="0" cellpadding="0">
-  <th align="left"><strong>请求包头</strong>
-    </td>
-  <th align="left"><strong>描述</strong>
-    </td>
 
-  <tr>
-    <td>x-azurecdn-request-date</td>
-    <td>必填。符合yyyy-MM-dd hh:mm:ss格式的UTC当前请求时间</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>必填。授权头，具体算法请参考<a href="https://www.azure.cn/documentation/articles/cdn-api-signature/">CDN API签名机制</a> 。</td>
-  </tr>
-  <tr>
-    <td>content-type</td>
-    <td>必填。application/json</td>
-  </tr>
-</table>
-
-
-| Heading 1 | Heading 2 | Heading 3 |
-|-----------|:-----------:|-----------:|
-| Cell A1 | Cell A2 | Cell A3 |
-| Cell B1 | Cell B2 | Cell B3[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/) |
+| 请求包头 | 描述 |
+|-----------|:-----------:|
+| x-azurecdn-request-date | 必填。符合yyyy-MM-dd hh:mm:ss格式的UTC当前请求时间 |
+| Authorization | 必填。授权头[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/) |
+| content-type | 必填。application/json |
 
 
 ### 请求 Body
