@@ -60,7 +60,7 @@
 | Heading 1 | Heading 2 | Heading 3 |
 |-----------|:-----------:|-----------:|
 | Cell A1 | Cell A2 | Cell A3 |
-| Cell B1 | Cell B2 | Cell B3 |
+| Cell B1 | Cell B2 | Cell B3[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/) |
 
 
 ### 请求 Body
