@@ -48,7 +48,7 @@
   </tr>
   <tr>
     <td>Authorization</td>
-    <td>必填。授权头，具体算法见授权请求头计算。</td>
+    <td>必填。授权头，具体算法请参考[CDN API签名机制](https://www.azure.cn/documentation/articles/cdn-api-signature/)。</td>
   </tr>
   <tr>
     <td>content-type</td>
