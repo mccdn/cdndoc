@@ -9,14 +9,31 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
 
 - 开启HTTPS加速后，需要上传加速域名的证书和私钥，证书和私钥需要匹配，否则会校验出错。
 
-- 上传的证书和私钥需要匹配，且证书格式为PEM格式，不支持其他格式的证书，需将其他格式的证书转换成PEM格式，可以通过openssl工具进行转换。
-    >**注意** 
-    >秘钥编码格式目前支持RSA PCKS 1到PKCS8编码格式，可以使用openssl工具将秘钥编码格式转为支持的编码格式，以PKCS8为例：
+- 支持看证书信息，但不支持证书下载，也不支持秘钥查看，请保管好证书相关信息。
+
+###证书格式说明
+
+- 证书格式为PEM格式，不支持其他格式的证书，需将其他格式的证书转换成PEM格式，可以通过openssl工具进行转换。
+- 证书以[-----BEGIN CERTIFICATE-----,-----END CERTIFICATE-----]开头结尾。
+- 秘钥目前只支持RSA PKCS8编码格式，PKCS8编码的私钥是以[-----BEGIN PRIVATE KEY-----,-----END PRIVATE KEY-----]开头结尾。
+    >**注意**
+    >可以使用openssl工具对秘钥编码格式进行转换，以RSA PKCS#1转PKCS8为例：
     >
     >.\openssl.exe pkcs8 -topk8 -inform PEM -outform PEM -in .\keyfile.key -out converted.key -nocrypt
 
-- 支持看证书信息，但不支持证书下载，也不支持秘钥查看，请保管好证书相关信息。
-- 目前不支持证书链。
+- 暂不不支持中间证书或证书链，用户只需上传域名对应的具体证书。
+###常见证书格式转换
+
+####DER格式转换为PEM
+- 证书转换
+    >openssl x509 -in cert.der -inform DER -out cert.pem -outform PEM
+- 私钥转换
+    >openssl rsa -in privagekey.der -inform DER -out privatekey.pem -outform PEM
+####PFX格式转换为PEM
+- 证书转换
+    >openssl pkcs12 -in cert.pfx -nokeys -out cert.pem
+- 私钥转换
+    >openssl pkcs12 -in cert.pfx -nocerts -out key.pem -nodes
 
 ##配置说明
 
