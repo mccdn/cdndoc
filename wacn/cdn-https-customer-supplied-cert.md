@@ -9,7 +9,7 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
 - 支持泛域名的HTTPS加速。
 - 支持的加速类型为网页加速，下载加速，点播加速和直播加速。
      >**注意** 图片处理加速类型暂不支持HTTPS加速。
-- 用户需先创建好所需的HTTP加速，之后点击配置界面的“管理”按钮，跳转到CDN管理界面，需要到**新版Azure CDN管理门户**启用HTTPS服务，并上传PEM格式的证书和秘钥。详见后文的“自助式启用HTTPS加速步骤”。
+- 需要在**新版Azure CDN管理界面**启用HTTPS服务，并上传PEM格式的证书和秘钥。详见后文的“自助式启用HTTPS加速步骤”。
 - 开启HTTPS加速后，默认同时支持HTTP和HTTPS方式的请求。如需强制将HTTP请求跳转成HTTPS请求，请联系世纪互联进行配置。我们后续会在管理界面实现自动化选择。
 - 回源协议默认跟随用户发起的请求协议，即HTTP请求通过HTTP协议回源，HTTPS请求通过HTTPS协议回源。如需指定只有HTTP回源或者只有HTTPS回源，请联系世纪互联尽心配置。我们后续会在管理界面实现自动化选择。
 
@@ -24,7 +24,7 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
 
 ### 证书格式说明
 
-- 证书格式为PEM格式，不支持其他格式的证书，需将其他格式的证书转换成PEM格式，可以通过openssl工具进行转换。
+- 证书格式为PEM格式，不支持其他格式的证书，需将其他格式的证书转换成PEM格式，可以通过openssl工具进行转换。请参考下文“常见证书格式转换”。
 - 证书以[-----BEGIN CERTIFICATE-----,-----END CERTIFICATE-----]开头结尾。
 - 秘钥目前只支持RSA PKCS8编码格式，PKCS8编码的私钥是以[-----BEGIN PRIVATE KEY-----,-----END PRIVATE KEY-----]开头结尾。
     >**注意**
@@ -32,7 +32,7 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
     >
     >.\openssl.exe pkcs8 -topk8 -inform PEM -outform PEM -in .\keyfile.key -out converted.key -nocrypt
 
-- 暂不不支持中间证书或证书链，用户只需上传域名对应的具体证书。
+- 暂不不支持中间证书或证书链，用户只需上传加速域名对应的具体证书。
 ### 常见证书格式转换
 
 #### DER格式转换为PEM
@@ -48,27 +48,32 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
 
 ## 价格说明
 
-自有证书的HTTPS加速价格，将于2017年7月1日起，享用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
+自有证书的HTTPS加速价格，将于2017年7月1日起，享用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
 
 ## 自助式启用HTTPS加速步骤
 
 1. 用户可以在[经典管理门户](https://manage.windowsazure.cn)创建任意加速类型（网页加速，点播加速，下载加速和直播加速）的CDN节点，也可以在新版[Azure门户预览](https://portal.azure.cn)中创建CDN节点。
-     >**注意**只有CNAME为“活跃”，节点状态为“已启用”的节点才可以启用HTTPS。
-     
-2. 以新版Azure门户预览为例，点击‘Manage’进入老版Azure CDN管理门户。
+    >**注意**可以对符合条件的新建域名开启自有证书的HTTPS，也可以针对符合条件的其他域名开启。
+       
+2. 以新版Azure门户预览为例，点击“Manage”进入老版Azure CDN管理门户。点击“访问新站点”，到新版Azure CDN管理门户。
      >**注意**需要跳转到新版Azure CDN管理门户上传HTTPS自有证书。
     
-    新版Azure门户预览中的CDN profile界面：
+    **新版Azure门户预览中的CDN profile界面：**
 
     ![][1]
 
-    老版Azure CDN管理门户界面：
+    **老版Azure CDN管理门户界面：**
 
     ![][2]
 
-    新版Azure CDN管理门户界面：
-3. 点击域名管理，启用HTTPS服务，上传证书，注意证书必须是PEM格式，具体证书格式转换请参考证书说明。
-4. 
+    **新版Azure CDN管理门户界面：**
+3. 点击“证书管理”，上传需要启用HTTPS服务的域名证书，注意证书必须是PEM格式，具体证书格式转换请参考上文的“证书说明”。
+     >**注意**证书上传后，需要到“域名管理”界面，将证书和域名进行绑定，证书才会进行部署。
+4. 点击“域名管理”，选择需要启用HTTPS服务的域名，在右侧界面选择“启用HTTPS”，上传证书下拉列表框中选择已上传的证书，点击确定。如果没有符合的证书，点击“证书管理”，参考步骤3上传证书。
+
+
+
+
 <!--Image references-->
 [1]: ./httpsimage/manage.png
 [2]: ./httpsimage/oldportal.png
