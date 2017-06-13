@@ -1,7 +1,7 @@
 
 # Azure China CDN用户上传HTTPS自有证书正式发布
 
-Azure CDN自2016年5月份开始在CDN管理门户实现step by step的全新开通引导流程，用户可以清楚的了解到整个开通流程每一步骤的状态信息且开通周期缩短到5-7天左右，从而获得一个更好的用户体验。这种方式是Azure CDN代为申请证书，属于高级版CDN服务。高级版服务于2017年5月1日起降价，降价幅度高达33%，详情请参考请参考Azure官方网站。
+Azure CDN自2016年5月份开始在CDN管理门户实现step by step的全新开通引导流程，用户可以清楚的了解到整个开通流程每一步骤的状态信息且开通周期缩短到5-7天左右，从而获得一个更好的用户体验。这种方式是Azure CDN代为申请证书，属于高级版CDN服务。高级版服务于2017年5月1日起降价，降价幅度高达33%，详情请参考请参考[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
 
 随着苹果宣布2017年开始App Store中所有的APP必须启用HTTPS，百度、谷歌对HTTPS加密的安全网站进行优先排名，用户对HTTPS加密访问的需求也水涨船高。我们收到很多用户请求要求上传自有证书。经过产品组的不懈努力，向所有付费用户开放了自有证书上传的自助化操作和自动化部署。
 >**注意**客户上传自有证书的HTTPS加速将从2017年7月1日起，使用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
@@ -69,7 +69,7 @@ Azure CDN代为申请证书的HTTPS加速服务和用户自有证书都是自助
     
 ## 后续更新
 
-- 心动不如行动，快去Azure CDN新版管理门户开通HTTPS加速，为您的用户提供安全，快速的用户体验的同时节省成本。更多详情，请参考Azure CDN HTTPS加速服务-用户自有证书和Azure CDN HTTPS 加速服务-AzureCDN待申请证书。
+- 心动不如行动，快去Azure CDN新版管理门户开通HTTPS加速，为您的用户提供安全，快速的用户体验的同时节省成本。更多详情，请参考[Azure CDN HTTPS 加速服务- Azure CDN用户自有证书](https://www.azure.cn/documentation/articles/cdn-https-customer-supplied-cert)和[Azure CDN HTTPS加速服务-Azure CDN代申请证书](https://www.azure.cn/documentation/articles/cdn-https-how-to/)。
 - 产品组也将继续完善HTTPS自有证书的功能，比如支持级联证书，更换证书和删除证书等。
 - 如果您对我们的产品有任何意见或者建议，欢迎到我们的产品反馈页面进行反馈。我们的产品团队会针对您的反馈对产品做出改进。
 
