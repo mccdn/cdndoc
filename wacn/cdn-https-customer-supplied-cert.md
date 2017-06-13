@@ -66,7 +66,7 @@ Azure CDN提供HTTPS安全加速服务，支持用户上传自有证书，也支
 
 ## 价格说明
 
-自有证书的HTTPS加速价格，将于2017年7月1日起，享用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
+自有证书的HTTPS加速，将于2017年7月1日起，使用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
 
 
 ## 自助式启用HTTPS加速步骤

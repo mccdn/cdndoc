@@ -1,18 +1,17 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Windows Azure CDN in China - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn the overview of WIndows Azure CDN, advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service=""
-ms.date=""
-wacn.date="6/13/2017"
-/>
-    
+
 # Azure China CDN用户上传HTTPS自有证书正式发布
 
 Azure CDN自2016年5月份开始在CDN管理门户实现step by step的全新开通引导流程，用户可以清楚的了解到整个开通流程每一步骤的状态信息且开通周期缩短到5-7天左右，从而获得一个更好的用户体验。这种方式是Azure CDN代为申请证书，属于高级版CDN服务。高级版服务于2017年5月1日起降价，降价幅度高达33%，详情请参考请参考Azure官方网站。
 
-随着苹果宣布2017年开始App Store中所有的APP必须启用HTTPS，百度、谷歌对HTTPS加密的安全网站进行优先排名，用户对HTTPS加密访问的需求也水涨船高。我们收到很多用户请求要求上传自有证书。经过产品组的不懈努力，向所有付费用户开放了自有证书上传的自助化操作和自动化部署。客户上传自有证书的HTTPS将从7月1日起，归为标准版CDN服务。
+随着苹果宣布2017年开始App Store中所有的APP必须启用HTTPS，百度、谷歌对HTTPS加密的安全网站进行优先排名，用户对HTTPS加密访问的需求也水涨船高。我们收到很多用户请求要求上传自有证书。经过产品组的不懈努力，向所有付费用户开放了自有证书上传的自助化操作和自动化部署。
+>**注意**客户上传自有证书的HTTPS加速将从2017年7月1日起，使用标准版服务价格，2017年7月1日前，该服务属于高级服务，使用高级服务价格。具体计费方式请参见[Azure官方网站](https://www.azure.cn/pricing/details/cdn/)。
+
 
 用户可以通过新版CDN管理门户，为所有符合条件的域名开启自有证书的HTTPS加速（付费账号下所有的标准版CDN域名，图片加速节点除外）。自助化上传自有证书，并将证书和域名进行绑定，实现自动化证书部署。
 
 >**注意**：在“Azure门户预览”新建CDN Profile和节点时，如果准备启用自有证书的HTTPS加速，Pricing Tier请选择“S1 Standard”。"P1 Premium"中的HTTPS是指Azure CDN代为申请证书。
+
+
    ![][15]
 
 ## 自助化上传证书步骤如下：
