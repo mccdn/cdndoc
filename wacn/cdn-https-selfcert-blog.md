@@ -1,7 +1,7 @@
 <properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Windows Azure CDN in China - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn the overview of WIndows Azure CDN, advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 <tags ms.service=""
 ms.date=""
-wacn.date="11/24/2015"
+wacn.date="6/13/2017"
 />
     
 # Azure China CDN用户上传HTTPS自有证书正式发布
@@ -12,9 +12,16 @@ Azure CDN自2015年4月份就开始提供线下人工配置的HTTPS加速服务�
 
 ## 自助化上传证书步骤如下：
 
-1. 需跳转到新版CDN管理门户，进行HTTPS服务的开启。
+
+1. 需跳转到新版CDN管理门户，进行HTTPS服务的开启。 
+   ![][3]
+	   
 2. 在”证书管理“界面，上传PEM格式的证书和私钥。支持泛域名证书上传。
+   ![][4]
+
 3. 到”域名管理“对域名启用HTTPS服务，并绑定相应证书。
+   ![][8]
+   
 
 ## Azure CDN代为申请证书的HTTPS加速服务和用户自有证书的区别
 
@@ -51,3 +58,17 @@ Azure CDN代为申请证书的HTTPS加速服务和用户自有证书都是自助
 - 心动不如行动，快去Azure CDN新版管理门户开通HTTPS加速，为您的用户提供安全，快速的用户体验的同时节省成本。更多详情，请参考Azure CDN HTTPS加速服务-用户自有证书和Azure CDN HTTPS 加速服务-AzureCDN待申请证书。
 - 产品组也将继续完善HTTPS自有证书的功能，比如支持级联证书，更换证书和删除证书等。
 - 如果您对我们的产品有任何意见或者建议，欢迎到我们的产品反馈页面进行反馈。我们的产品团队会针对您的反馈对产品做出改进。
+
+<!--Image references-->
+[1]: ./httpsimage/manage.png
+[2]: ./httpsimage/oldportal.png
+[3]: ./httpsimage/newportaloverview.png
+[4]: ./httpsimage/uploadcert.png
+[5]: ./httpsimage/bindcert1.png
+[6]: ./httpsimage/bindcert1.1.png
+[7]: ./httpsimage/certdetail.png
+[8]: ./httpsimage/bindcert2.png
+[9]: ./httpsimage/bindcert3.png
+[10]: ./httpsimage/success.png
+[11]: ./httpsimage/successdomainstatuspng.png
+[12]: ./httpsimage/cert4.png
